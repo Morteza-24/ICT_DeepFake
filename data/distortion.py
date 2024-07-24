@@ -48,7 +48,7 @@ def color_contrast(img, param):
 def block_wise(img, param):
     width = min(img.shape[0], img.shape[1]) // 256 * 8
     #param = min(img.shape[0], img.shape[1]) // 256 * param
-    img = img.astype(np.float)/255.
+    img = img.astype(float)/255.
     img = img *2-1
     #print (img)
     mask = np.ones(img.shape)

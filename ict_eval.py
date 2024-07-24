@@ -286,7 +286,7 @@ if __name__ == '__main__':
     parser.add_argument("--net_mode", default='ict_base', type=str)
     parser.add_argument("--aug_test", action='store_true', help='test with perturped input')
     parser.add_argument("-name", "--dump_name", default='mask_test', type=str)
-    parser.add_argument("--local_rank", type=int)
+    parser.add_argument("--local-rank", type=int)
 
     args = parser.parse_args()
 
@@ -294,6 +294,7 @@ if __name__ == '__main__':
     world_size = int(os.environ["WORLD_SIZE"])
     args.distributed = world_size > 1
     print("world size is {}".format(world_size))
+    args.distributed = True
     if args.distributed:
         torch.distributed.init_process_group(backend='nccl', init_method='env://')
     else:
