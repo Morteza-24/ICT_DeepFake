@@ -10,4 +10,4 @@ fakes = []
 for filename in os.listdir(fake):
     fakes.append(fake[13:]+filename)
 with open("ICT_DeepFake/DATASET/paths/paths_of_ff_fake.json", "wt") as f:
-  json.dump(reals, f)
+  json.dump(fakes, f)
